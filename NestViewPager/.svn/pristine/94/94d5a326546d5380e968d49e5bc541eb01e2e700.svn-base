@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/all_bg"
+    android:orientation="vertical">
+
+    <org.lmw.demo.slidingtab.widget.PagerSlidingTabStrip
+        android:id="@+id/tabs"
+        android:layout_width="match_parent"
+        android:layout_height="30dip"
+        android:background="@color/white"
+        app:pstsDividerColor="@android:color/transparent"
+        app:pstsIndicatorColor="@color/lipe_red"
+        app:pstsIndicatorHeight="2dp"
+        app:pstsShouldExpand="true"
+        app:pstsTabBackground="@drawable/background_tab"
+        app:pstsUnderlineHeight="2dp"
+        app:selectedTabTextColor="@color/lipe_red" />
+
+    <com.ruiec.nok.livetv.view.ChildViewPager
+        android:id="@+id/pager"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tabs" />
+
+</LinearLayout>

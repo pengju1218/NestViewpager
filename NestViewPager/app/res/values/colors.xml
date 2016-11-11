@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="title_black">#170b0b</color>
+    <color name="white">#ffffff</color>
+
+    <color name="top_back">#3E4148</color>
+    <color name="nomal_bg">#292C35</color>
+    <color name="all_bg">#E9E8F0</color>
+    <color name="text_hint_color">#999999</color>
+    <color name="white1">#f3d2be</color>
+    <color name="yellow">#ee7d05</color>
+    <color name="background">#f7f7f7</color>
+    <color name="size_black">#3c3c3c</color>
+    <color name="hint_black">#cccccc</color>
+    <color name="text_color">#383838</color>
+    <color name="red">#E44B50</color>
+    <color name="black">#000000</color>
+    <color name="cancel_b">#cccccc</color>
+    <color name="line">#dddddd</color>
+    <color name="size_black2">#333333</color>
+    <color name="size_black3">#999999</color>
+    <color name="top_background">#3e4148</color>
+    <color name="index_black">#23262d</color>
+    <color name="green">#2fc297</color>
+    <color name="button_blue">#0075a9</color>
+    <color name="red1">#873338</color>
+    <color name="line1">#32363d</color>
+    <color name="line2">#2e3238</color>
+    <color name="lipe_red">#Fd4F91</color>
+    <color name="divide_color">#3F424B</color>
+
+
+
+
+
+    <!--字体颜色-->
+    <color name="global_text_color_01">#FF000000</color>
+    <color name="global_text_color_02">#FFFFFFFF</color>
+    <color name="global_text_color_03">#FF00FF00</color>
+    <color name="global_text_color_04">#FFFF0000</color>
+    <color name="global_text_color_05">#FF10A0F6</color>
+    <color name="global_text_color_06">#88454545</color>
+    <color name="global_text_color_07">#55454545</color>
+    <!--背景颜色-->
+    <color name="global_bg_color_01">#FF000000</color>
+    <color name="global_bg_color_02">#FFFFFFFF</color>
+    <color name="global_bg_color_03">#FF00FF00</color>
+    <color name="global_bg_color_04">#FFFF0000</color>
+    <color name="global_bg_color_05">#FF10A0F6</color>
+    <color name="global_bg_color_06">#88454545</color>
+    <color name="global_bg_color_07">#55454545</color>
+
+    <color name="line_select">#f7590b</color>
+    <color name="line_color1">#eaeaea</color>
+    <color name="text_color1">#f7590b</color>
+    <color name="text_color2">#b0afaf</color>
+    <color name="text_color3">#363636</color>
+    <color name="text_color4">#403b37</color>
+    <color name="text_color5">#848484</color>
+    <color name="text_color6">#88403b37</color>
+    <color name="text_color7">#0D62E4</color>
+    <color name="text_color8">#5e5955</color>
+
+    <color name="colorPrimary">#00D8C9</color>
+    <color name="colorPrimaryDark">#00D8C9</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="window_background">#F5F5F5</color>
+
+    <color name="common_bottom_bar_normal_bg">#323232</color>
+    <color name="common_bottom_bar_selected_bg">#fff</color>
+    <color name="common_botton_bar_text_noral">#5E5E5E</color>
+    <color name="placeholder">#ddd</color>
+    <color name="author_background">#66000000</color>
+
+    <color name="common_bg">#E6E6EB</color>
+
+    <color name="common_red">#FF4C4C</color>
+    <color name="common_white">#fff</color>
+    <color name="common_black">#3B3B3B</color>
+
+    <color name="color_progress">#2196F3</color>
+
+    <color name="common_btn_white_normal">@color/common_white</color>
+    <color name="common_btn_white_pressed">#ccc</color>
+
+    <color name="common_btn_black_normal">#1A1A1A</color>
+    <color name="black_323232">#323232</color>
+    <color name="common_btn_black_pressed">#111010</color>
+    <color name="common_btn_blue_normal">#24AAFF</color>
+    <color name="common_btn_blue_pressed">#1887cd</color>
+</resources>

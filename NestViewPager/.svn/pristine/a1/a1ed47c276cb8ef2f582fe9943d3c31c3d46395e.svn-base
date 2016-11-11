@@ -1,0 +1,41 @@
+package com.ruiec.nok.livetv.fragment;
+
+import android.view.LayoutInflater;
+import android.view.View;
+
+import com.ruiec.nok.livetv.Base.BaseFragment;
+import com.ruiec.nok.livetv.R;
+import com.ruiec.nok.livetv.inter.FragChoose;
+
+/**
+ * 个人中心　
+ * Created by Administrator on 2016/7/4.
+ */
+public class PersonFrag extends BaseFragment implements View.OnClickListener ,FragChoose {
+
+    @Override
+    protected void lazyLoad() {
+
+    }
+
+    @Override
+    public View initRootView(LayoutInflater inflater) {
+        View view=inflater.inflate(R.layout.person_frag,null);
+        return view;
+    }
+
+    @Override
+    protected void findView(View view) {
+
+    }
+
+    @Override
+    public void choose(int index, String name) {
+
+    }
+
+    @Override
+    public void onClick(View v) {
+
+    }
+}

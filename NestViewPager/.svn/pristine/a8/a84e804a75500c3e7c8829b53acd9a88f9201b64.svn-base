@@ -1,0 +1,10 @@
+package com.ruiec.nok.livetv.constan;
+
+/**
+ * Created by Administrator on 2016/8/22.
+ */
+public class Constant {
+    public static String base_url="http://192.168.0.10:8082/api/";
+
+
+}

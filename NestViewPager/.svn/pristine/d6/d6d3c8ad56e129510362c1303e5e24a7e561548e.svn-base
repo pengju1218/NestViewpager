@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<resources>
+    <string name="app_name">直播</string>
+    <string name="tab1">观看</string>
+    <string name="tab2">直播</string>
+    <string name="tab3">资讯</string>
+    <string name="tab4">我的</string>
+
+</resources>

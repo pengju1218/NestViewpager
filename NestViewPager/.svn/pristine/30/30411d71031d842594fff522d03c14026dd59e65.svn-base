@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="title_black">#170b0b</color>
+    <color name="white">#ffffff</color>
+
+    <color name="top_back">#3E4148</color>
+    <color name="nomal_bg">#292C35</color>
+    <color name="all_bg">#E9E8F0</color>
+    <color name="text_hint_color">#999999</color>
+    <color name="white1">#f3d2be</color>
+    <color name="yellow">#ee7d05</color>
+    <color name="background">#f7f7f7</color>
+    <color name="size_black">#3c3c3c</color>
+    <color name="hint_black">#cccccc</color>
+    <color name="text_color">#383838</color>
+    <color name="red">#E44B50</color>
+    <color name="black">#000000</color>
+    <color name="cancel_b">#cccccc</color>
+    <color name="line">#dddddd</color>
+    <color name="size_black2">#333333</color>
+    <color name="size_black3">#999999</color>
+    <color name="top_background">#3e4148</color>
+    <color name="index_black">#23262d</color>
+    <color name="green">#2fc297</color>
+    <color name="button_blue">#0075a9</color>
+    <color name="red1">#873338</color>
+    <color name="line1">#32363d</color>
+    <color name="line2">#2e3238</color>
+    <color name="lipe_red">#Fd4F91</color>
+    <color name="divide_color">#3F424B</color>
+
+</resources>

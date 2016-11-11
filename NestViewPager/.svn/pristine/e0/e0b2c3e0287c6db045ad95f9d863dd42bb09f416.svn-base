@@ -1,0 +1,220 @@
+package com.ruiec.nok.livetv.util;
+
+
+import android.content.ClipboardManager;
+import android.content.Context;
+import android.content.res.AssetManager;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.PixelFormat;
+import android.graphics.drawable.Drawable;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ListAdapter;
+import android.widget.ListView;
+
+import com.logic.http.RequestParams;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+/**
+ * Created by asus on 2016/6/8.
+ */
+public class Otin {
+
+    public static Otin otin;
+
+    public static Otin getThis() {
+        if (otin == null) {
+            otin = new Otin();
+        }
+        return otin;
+    }
+
+    public String getJson(Context context, String fileName) {
+
+        StringBuilder stringBuilder = new StringBuilder();
+        try {
+            AssetManager assetManager = context.getAssets();
+            BufferedReader bf = new BufferedReader(new InputStreamReader(
+                    assetManager.open(fileName)));
+            String line;
+            while ((line = bf.readLine()) != null) {
+                stringBuilder.append(line);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return stringBuilder.toString();
+    }
+
+
+    public int dip2px(Context context, float dipValue) {
+        final float scale = context.getResources().getDisplayMetrics().density;
+        return (int) (dipValue * scale + 0.5f);
+    }
+
+    public void setListViewHeightBasedOnChildren(ListView listView) {
+        if (listView == null) return;
+        ListAdapter listAdapter = listView.getAdapter();
+        if (listAdapter == null) {
+            // pre-condition
+            return;
+        }
+        int totalHeight = 0;
+        for (int i = 0; i < listAdapter.getCount(); i++) {
+            View listItem = listAdapter.getView(i, null, listView);
+            listItem.measure(0, 0);
+            totalHeight += listItem.getMeasuredHeight();
+        }
+        ViewGroup.LayoutParams params = listView.getLayoutParams();
+        params.height = totalHeight + (listView.getDividerHeight() * (listAdapter.getCount() - 1));
+        listView.setLayoutParams(params);
+    }
+
+    /**
+     * 实现文本复制功能
+     *
+     * @param content
+     */
+    public void copy(String content, Context context) {
+// 得到剪贴板管理器
+        ClipboardManager cmb = (ClipboardManager) context
+                .getSystemService(Context.CLIPBOARD_SERVICE);
+        cmb.setText(content.trim());
+      //  Toast.makeText(context,context.getResources().getString(R.string.toast20),Toast.LENGTH_SHORT).show();
+    }
+
+    /**
+     * 实现粘贴功能
+     *
+     * @param context
+     * @return
+     */
+    public String paste(Context context) {
+// 得到剪贴板管理器
+        ClipboardManager cmb = (ClipboardManager) context
+                .getSystemService(Context.CLIPBOARD_SERVICE);
+        if(cmb==null||cmb.getText()==null){
+            return "";
+        }
+       // Toast.makeText(context,context.getResources().getString(R.string.toast21),Toast.LENGTH_SHORT).show();
+        return cmb.getText().toString().trim()+"";
+    }
+
+
+    public RequestParams ischeck(RequestParams requestParams, Context context) {
+        requestParams.put("Token", SharedPrefsUtil.getValue(context, "Token", ""));
+        requestParams.put("UserID", SharedPrefsUtil.getValue(context, "UserID", ""));
+        return requestParams;
+    }
+
+    public String getTime2(String time) {
+        String s = "";
+        if (time != null && time.length() > 10) {
+            s = time.replace("T", " ");
+        }
+        return s;
+    }
+
+
+    public String[] getTimer(String time) {
+        String[] data3 = new String[2];
+        String format = "";
+        if (time.length() >= 19) {
+            format = time.substring(0, 19).replace("T", " ");
+        }
+        try {
+            SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+            Date data = formatter.parse(format);
+            SimpleDateFormat formatter2 = new SimpleDateFormat("hh:mm");
+            SimpleDateFormat formatter3 = new SimpleDateFormat("MM-dd");
+            data3[0] = formatter3.format(data);
+            data3[1] = formatter2.format(data);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return data3;
+    }
+
+    /**
+     * Drawable转化为Bitmap
+     */
+    public Bitmap drawableToBitmap(Drawable drawable) {
+        int width = drawable.getIntrinsicWidth();
+        int height = drawable.getIntrinsicHeight();
+        Bitmap bitmap = Bitmap.createBitmap(width, height, drawable.getOpacity() != PixelFormat.OPAQUE ? Bitmap.Config.ARGB_8888 : Bitmap.Config.RGB_565);
+        Canvas canvas = new Canvas(bitmap);
+        drawable.setBounds(0, 0, width, height);
+        drawable.draw(canvas);
+        return bitmap;
+
+    }
+
+
+    /**
+     * 在二维码中间添加Logo图案
+     */
+    private Bitmap addLogo(Bitmap src, Bitmap logo) {
+        if (src == null) {
+            return null;
+        }
+
+        if (logo == null) {
+            return src;
+        }
+
+        //获取图片的宽高
+        int srcWidth = src.getWidth();
+        int srcHeight = src.getHeight();
+        int logoWidth = logo.getWidth();
+        int logoHeight = logo.getHeight();
+
+        if (srcWidth == 0 || srcHeight == 0) {
+            return null;
+        }
+
+        if (logoWidth == 0 || logoHeight == 0) {
+            return src;
+        }
+
+        //logo大小为二维码整体大小的1/5
+        float scaleFactor = srcWidth * 1.0f / 5 / logoWidth;
+        Bitmap bitmap = Bitmap.createBitmap(srcWidth, srcHeight, Bitmap.Config.ARGB_8888);
+        try {
+            Canvas canvas = new Canvas(bitmap);
+            canvas.drawBitmap(src, 0, 0, null);
+            canvas.scale(scaleFactor, scaleFactor, srcWidth / 2, srcHeight / 2);
+            canvas.drawBitmap(logo, (srcWidth - logoWidth) / 2, (srcHeight - logoHeight) / 2, null);
+            canvas.save(Canvas.ALL_SAVE_FLAG);
+            canvas.restore();
+        } catch (Exception e) {
+            bitmap = null;
+            e.getStackTrace();
+        }
+
+        return bitmap;
+    }
+    public  boolean isNetworkAvailable(Context context) {
+        ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo netInfo = cm.getActiveNetworkInfo();
+        return netInfo != null && netInfo.isConnectedOrConnecting();
+    }
+
+    /**
+     * Is the live streaming still available
+     * @return is the live streaming is available
+     */
+    public  boolean isLiveStreamingAvailable() {
+        // Todo: Please ask your app server, is the live streaming still available
+        return true;
+    }
+}
+
+

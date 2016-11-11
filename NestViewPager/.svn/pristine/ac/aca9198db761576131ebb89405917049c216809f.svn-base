@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="TabView">
+        <attr name="tabView" format="reference"/>
+        <attr name="iconWidth" format="dimension"/>
+        <attr name="iconHeight" format="dimension"/>
+        <attr name="iconPadding" format="dimension"/>
+        <attr name="tab_textSize" format="dimension"/>
+
+    </declare-styleable>
+
+
+    <declare-styleable name="ChangeColorIconView">
+        <attr name="icon" format="reference" />
+        <attr name="color" format="color" />
+        <attr name="text" format="string" />
+        <attr name="text_size" format="dimension" />
+    </declare-styleable>
+
+
+    <declare-styleable name="TabView_xml">
+        <attr name="xml_iconWidth" format="dimension"/>
+        <attr name="xml_iconHeight" format="dimension"/>
+    </declare-styleable>
+
+</resources>

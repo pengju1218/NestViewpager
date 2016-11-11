@@ -1,0 +1,47 @@
+package com.ruiec.nok.livetv.acitivity;
+import android.support.v4.app.Fragment;
+import android.support.v4.view.ViewPager;
+
+import com.csdn.IconTabPageIndicator.icon.IconTabPageIndicator;
+import com.ruiec.nok.livetv.Base.BaseActivity;
+import com.ruiec.nok.livetv.R;
+import com.ruiec.nok.livetv.adapter.MainpagerAdatper;
+import com.ruiec.nok.livetv.inter.FragChoose;
+
+public class MainActivity extends BaseActivity implements FragChoose {
+    private ViewPager mViewPager;
+    private IconTabPageIndicator mIndicator;
+    private MainpagerAdatper adapter;
+    private int page;
+    private String address;
+    @Override
+    public void initView() {
+        setContentView(R.layout.activity_main);
+        mViewPager = (ViewPager) findViewById(R.id.view_pager);
+        mIndicator = (IconTabPageIndicator) findViewById(R.id.indicator);
+        adapter = new MainpagerAdatper(getSupportFragmentManager(), this);
+        mViewPager.setAdapter(adapter);
+        mIndicator.setViewPager(mViewPager);
+        mViewPager.setCurrentItem(0);
+    }
+    private FragChoose fragChoose;
+    @Override
+    public void onAttachFragment(Fragment fragment) {
+        try {
+            if (fragChoose == null) {
+                fragChoose = (FragChoose) fragment;
+            }
+        } catch (ClassCastException e) {
+            throw new ClassCastException(fragment.toString() + "must implement fragchooselistenrr");
+        }
+        super.onAttachFragment(fragment);
+    }
+
+
+    @Override
+    public void choose(int index, String name) {
+        mViewPager.setCurrentItem(index);
+    }
+
+
+}

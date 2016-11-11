@@ -1,0 +1,90 @@
+package com.ruiec.nok.livetv.fragment;
+
+import android.app.Activity;
+import android.content.Intent;
+import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.view.ViewPager;
+import android.view.LayoutInflater;
+import android.view.View;
+
+import com.ruiec.nok.livetv.Base.BaseFragment;
+import com.ruiec.nok.livetv.R;
+import com.ruiec.nok.livetv.acitivity.PLMediaPlayerActivity;
+import com.ruiec.nok.livetv.adapter.ScanFragAdatper;
+import com.ruiec.nok.livetv.scan.OneFrag;
+import com.ruiec.nok.livetv.scan.TwoFrag;
+import com.ruiec.nok.livetv.scan.ThreeFrag;
+import com.ruiec.nok.livetv.scan.FourFrag;
+import com.ruiec.nok.livetv.inter.FragChoose;
+import org.lmw.demo.slidingtab.widget.PagerSlidingTabStrip;
+/**
+ * 浏览观看直播　
+ * Created by Administrator on 2016/7/4.
+ */
+public class ScanFrag extends BaseFragment implements View.OnClickListener,FragChoose {
+
+    private PagerSlidingTabStrip tabs;
+    private ViewPager pager;
+    private ScanFragAdatper scanFragAdatper;
+
+
+    @Override
+    protected void lazyLoad() {
+
+    }
+
+    @Override
+    public View initRootView(LayoutInflater inflater) {
+        View view = inflater.inflate(R.layout.home_frag, null);
+
+        return view;
+    }
+
+    @Override
+    protected void findView(View view) {
+        this.pager = (ViewPager) view.findViewById(R.id.pager);
+        this.tabs = (PagerSlidingTabStrip) view.findViewById(R.id.tabs);
+
+
+    }
+
+
+    @Override
+    public void onActivityCreated(Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        Intent intent=new Intent(getActivity(), PLMediaPlayerActivity.class);
+        startActivity(intent);
+        scanFragAdatper=new ScanFragAdatper(getActivity().getSupportFragmentManager());
+        pager.setAdapter(scanFragAdatper);
+        tabs.setViewPager(pager);
+    }
+
+    private FragChoose fragChoose;
+    @Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+        try {
+            if (fragChoose == null) {
+                fragChoose = (FragChoose) activity;
+            }
+        } catch (ClassCastException e) {
+            throw new ClassCastException(activity.toString() + "must implement fragchooselistenrr");
+        }
+    }
+    @Override
+    public void onClick(View v) {
+
+    }
+
+    @Override
+    public void choose(int index, String name) {
+
+    }
+
+
+
+}
+

@@ -1,0 +1,65 @@
+package com.ruiec.nok.livetv.fragment;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+
+import com.ruiec.nok.livetv.Base.BaseFragment;
+import com.ruiec.nok.livetv.R;
+import com.ruiec.nok.livetv.inter.FragChoose;
+
+/**
+ * 直播
+ * Created by Administrator on 2016/7/4.
+ */
+public class SeedFrag extends BaseFragment implements View.OnClickListener ,FragChoose {
+
+
+    @Override
+    protected void lazyLoad() {
+
+    }
+
+    @Override
+    public View initRootView(LayoutInflater inflater) {
+
+        View view = inflater.inflate(R.layout.info_frag, null);
+        return view;
+    }
+
+    @Override
+    protected void findView(View view) {
+
+    }
+
+    private FragChoose fragChoose;
+
+
+    @Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+        try {
+            if (fragChoose == null) {
+                fragChoose = (FragChoose) activity;
+            }
+        } catch (ClassCastException e) {
+            throw new ClassCastException(activity.toString() + "must implement fragchooselistenrr");
+        }
+    }
+    @Override
+    public void onActivityCreated(Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+
+    }
+
+    @Override
+    public void onClick(View v) {
+
+    }
+
+    @Override
+    public void choose(int index, String name) {
+
+    }
+}

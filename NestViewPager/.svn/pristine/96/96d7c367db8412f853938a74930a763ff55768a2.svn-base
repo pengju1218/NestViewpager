@@ -1,0 +1,93 @@
+package com.ruiec.nok.livetv.view;
+
+import android.content.Context;
+import android.content.res.TypedArray;
+import android.graphics.Color;
+import android.text.Spannable;
+import android.text.SpannableStringBuilder;
+import android.text.Spanned;
+import android.text.style.AbsoluteSizeSpan;
+import android.text.style.CharacterStyle;
+import android.text.style.ForegroundColorSpan;
+import android.util.AttributeSet;
+import android.widget.TextView;
+
+import com.ruiec.nok.livetv.R;
+
+
+/**
+ * 添加可以设置drawable大小的功能
+ *
+ * @author Daniel
+ * @version 创建时间: Jul 26, 2012 5:28:59 PM
+ */
+public class KeyTextView extends TextView {
+
+    private int nameColor = Color.BLACK;
+    private int valueColor = Color.BLACK;
+    private int nameSize = 12;
+    private int valueSize = 12;
+    private String name = "";
+    private String value = "";
+
+
+    public KeyTextView(Context context) {
+        super(context);
+    }
+
+    public KeyTextView(Context context, AttributeSet attrs) {
+        super(context, attrs);
+        // super一定要在我们的代码之前配置文件
+        init(context, attrs, 0);
+    }
+
+    public KeyTextView(Context context, AttributeSet attrs, int defStyle) {
+        super(context, attrs, defStyle);
+        // super一定要在我们的代码之前配置文件
+        init(context, attrs, defStyle);
+    }
+
+    /**
+     * 初始化读取参数
+     */
+    private void init(Context context, AttributeSet attrs, int defStyle) {
+        // TypeArray中含有我们需要使用的参数
+        TypedArray a = context.obtainStyledAttributes(attrs,
+                R.styleable.KeyTextStyle, defStyle, 0);
+        nameSize = a.getDimensionPixelSize(R.styleable.KeyTextStyle_key_name_Size, 22);
+        valueSize = a.getDimensionPixelSize(R.styleable.KeyTextStyle_key_value_Size, 22);
+        nameColor = a.getColor(R.styleable.KeyTextStyle_key_name_Color, Color.BLACK);
+        valueColor = a.getColor(R.styleable.KeyTextStyle_key_value_Color, Color.BLACK);
+        name = a.getString(R.styleable.KeyTextStyle_key_name);
+        value = a.getString(R.styleable.KeyTextStyle_key_value);
+        a.recycle();
+        initText();
+    }
+
+
+    public void setName(String name) {
+        this.name = name;
+        initText();
+    }
+
+    public void setValue(String value) {
+        this.value = value;
+        initText();
+    }
+
+    public void initText() {
+        String all = name + value;
+        SpannableStringBuilder spannable = new SpannableStringBuilder(all);//用于可变字符串
+        CharacterStyle namecolorStyle = new ForegroundColorSpan(nameColor);
+        CharacterStyle valuecolorStyle = new ForegroundColorSpan(valueColor);
+        spannable.setSpan(namecolorStyle, 0, name.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        spannable.setSpan(valuecolorStyle, name.length(), all.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        CharacterStyle nameSizeSytle = new AbsoluteSizeSpan(nameSize);//字体大小
+        spannable.setSpan(nameSizeSytle, 0, name.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+        CharacterStyle valueSizeSytle = new AbsoluteSizeSpan(valueSize);//字体大小
+        spannable.setSpan(valueSizeSytle, name.length(), all.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+        this.setText(spannable);
+
+    }
+
+}

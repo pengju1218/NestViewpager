@@ -1,0 +1,8 @@
+package com.ruiec.nok.livetv.inter;
+
+/**
+ * Created by Administrator on 2016/8/31.
+ */
+public interface FragChoose {
+    public void choose(int index,String name);
+}

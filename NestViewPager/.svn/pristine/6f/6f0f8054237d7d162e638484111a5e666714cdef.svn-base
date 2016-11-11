@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="stepViewStyle">
+        <attr name="stepTextSize" format="dimension" />
+        <attr name="stepTextMarginY" format="dimension" />
+        <attr name="stepTextColor" format="color" />
+        <attr name="stepTextbgColor" format="color" />
+    </declare-styleable>
+
+    <declare-styleable name="WaveLoadingView">
+        <attr name="wlv_borderWidth" format="dimension" />
+        <attr name="wlv_borderColor" format="color" />
+        <attr name="wlv_progressValue" format="integer" />
+        <attr name="wlv_shapeType" format="enum">
+            <enum name="circle" value="0" />
+            <enum name="square" value="1" />
+        </attr>
+        <attr name="wlv_waveColor" format="color" />
+        <attr name="wlv_waveAmplitude" format="float" />
+        <attr name="wlv_titleTopSize" format="dimension" />
+        <attr name="wlv_titleCenterSize" format="dimension" />
+        <attr name="wlv_titleBottomSize" format="dimension" />
+        <attr name="wlv_titleTopColor" format="color" />
+        <attr name="wlv_titleCenterColor" format="color" />
+        <attr name="wlv_titleBottomColor" format="color" />
+        <attr name="wlv_titleTop" format="string" />
+        <attr name="wlv_titleCenter" format="string" />
+        <attr name="wlv_titleBottom" format="string" />
+    </declare-styleable>
+
+
+    <declare-styleable name="TextViewPlus">
+        <attr name="left_height" format="dimension" />
+        <attr name="left_width" format="dimension" />
+        <attr name="right_height" format="dimension" />
+        <attr name="right_width" format="dimension" />
+        <attr name="top_height" format="dimension" />
+        <attr name="top_width" format="dimension" />
+        <attr name="bottom_height" format="dimension" />
+        <attr name="bottom_width" format="dimension" />
+    </declare-styleable>
+
+
+    <declare-styleable name="SizeRadioStyle">
+        <attr name="drawablePadding" format="dimension" />
+        <attr name="drawableSize" format="dimension" />
+        <attr name="drawableTop" format="reference" />
+        <attr name="drawableLeft" format="reference" />
+        <attr name="drawableRight" format="reference" />
+        <attr name="drawableBottom" format="reference" />
+    </declare-styleable>
+
+
+    <!--
+
+        <declare-styleable name = "dashedline">
+            <attr name = "lineColor" format= "color" />
+        </declare-styleable >
+    -->
+
+
+    <attr name="borderRadius" format="dimension" />
+    <attr name="type">
+        <enum name="circle" value="0" />
+        <enum name="round" value="1" />
+    </attr>
+    <attr name="src" format="reference"></attr>
+
+    <declare-styleable name="RoundImageView">
+        <attr name="borderRadius" />
+        <attr name="type" />
+        <attr name="src" />
+    </declare-styleable>
+
+
+    <declare-styleable name="Theme">
+        <attr name="customImageViewStyle" format="reference" />
+    </declare-styleable>
+    <!-- 自定义圆角ImageView -->
+    <declare-styleable name="CustomImageView">
+        <attr name="circle" format="boolean" />
+        <attr name="radius" format="dimension" />
+    </declare-styleable>
+
+    <declare-styleable name="roundedimageview">
+        <attr name="border_thickness" format="dimension" />
+        <attr name="border_inside_color" format="color" />
+        <attr name="border_outside_color" format="color"></attr>
+    </declare-styleable>
+    <declare-styleable name="MoreTextStyle">
+        <attr name="mytextSize" format="dimension" />
+        <attr name="mytextColor" format="color" />
+        <attr name="maxLine" format="integer" />
+        <attr name="mytext" format="string" />
+        <attr name="expand" format="boolean" />
+    </declare-styleable>
+
+
+    <declare-styleable name="TabLineStyle">
+
+        <attr name="tab_TextSize" format="dimension" />
+        <attr name="tabItem_Width" format="dimension" />
+        <attr name="tab_BgColor" format="color" />
+        <attr name="tab_SelectColor" format="color" />
+        <attr name="tab_UnSelectColor" format="color" />
+        <attr name="tab_divide_Visiable" format="boolean" />
+
+    </declare-styleable>
+    <declare-styleable name="KeyTextStyle">
+        <attr name="key_name_Color" format="color" />
+        <attr name="key_name_Size" format="dimension" />
+        <attr name="key_value_Color" format="color" />
+        <attr name="key_value_Size" format="dimension" />
+        <attr name="key_name" format="string" />
+        <attr name="key_value" format="string" />
+    </declare-styleable>
+
+
+</resources>

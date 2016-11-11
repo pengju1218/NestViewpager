@@ -1,0 +1,93 @@
+package com.ruiec.nok.livetv.util;
+
+import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
+import android.os.Bundle;
+import android.widget.Toast;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+
+/**
+ * Created by asus on 2016/4/26.
+ */
+public class Tools {
+
+    private static Toast toast=null;
+
+    /**
+     * activity的跳转
+     * @param fromActivity 当前的Activity
+     * @param clazz 跳转目的地activity
+     * @param bundle 跳转时携带的数据
+     */
+    public static void goToActivity(Activity fromActivity, Class clazz, Bundle bundle){
+        if(fromActivity instanceof Activity){
+
+        }else{
+            throw new RuntimeException("传入的activity必须是Activity的子类");
+        }
+        Intent intent=new Intent(fromActivity,clazz);
+        if(bundle!=null){
+            intent.putExtras(bundle);
+        }
+        fromActivity.startActivity(intent);
+    }
+
+    /**
+     * 显示提示框
+     * @param context 当前的activity
+     * @param content 提示内容
+     */
+    public static void showToast(Context context,String content){
+       Toast.makeText(context,content,Toast.LENGTH_LONG).show();
+    }
+
+    /**
+     * 拨打电话
+     * @param context 当前的activity
+     */
+    public static void makePhoneCall(Context context,String telphone){
+              Intent intent=new Intent();
+                intent.setAction(Intent.ACTION_CALL);
+                intent.setData(Uri.parse("tel:"+ telphone+""));
+              context.startActivity(intent);
+    }
+    /**
+     * 和当前时间比较得到的内容
+     */
+    public static int time(String day) throws ParseException {
+        SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd");
+        Long c = new Date().getTime()-sf.parse(day).getTime();
+        int d = (int) (c/1000/60/60/24);//天
+        return d;
+    }
+    /**
+     * 形成数据
+     */
+    public static String addText(String accoument,String account_address,String codeId,String paynumber){
+        return accoument+":"+ account_address+":"+ codeId+":"+ paynumber;
+    }
+
+    /**
+     * 加密  ase256加密
+     */
+
+    /**
+     * 判断语言
+     * @return
+     */
+    private static boolean isZh() {
+        String language = Locale.getDefault().getLanguage();
+        if (language.endsWith("zh"))
+            return true;
+        else
+            return false;
+    }
+
+
+}
